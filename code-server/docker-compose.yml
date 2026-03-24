@@ -1,0 +1,19 @@
+services:
+  code-server:
+    image: linuxserver/code-server:latest
+    container_name: code-server
+    environment:
+      - PUID=1000
+      - PGID=1000
+      - TZ=Europe/Paris
+      - PASSWORD=TonMotDePasse
+    volumes:
+      - ./config:/config
+      - /home/ouistitive/programs:/workspace
+    restart: unless-stopped
+    networks:
+      - proxy
+
+networks:
+  proxy:
+    external: true

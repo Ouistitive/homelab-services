@@ -1,0 +1,19 @@
+services:
+  couchdb:
+    image: couchdb:3
+    container_name: couchdb
+    restart: unless-stopped
+    environment:
+      - COUCHDB_USER=${COUCHDB_USER}
+      - COUCHDB_PASSWORD=${COUCHDB_PASSWORD}
+    volumes:
+      - ${ROOT_VOLUME}/couchdb_data:/opt/couchdb/data
+    networks:
+      - proxy
+
+volumes:
+  couchdb_data:
+
+networks:
+  proxy:
+    external: true

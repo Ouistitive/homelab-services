@@ -1,0 +1,21 @@
+services:
+  adguardhome:
+    image: adguard/adguardhome
+    container_name: adguardhome
+    restart: always
+    ports:
+      - "53:53/tcp"
+      - "53:53/udp"
+      - "82:80"
+      - "3002:3000"   # HTTP interface web (optionnel si NPM uniquement)
+      - "5443:5443"   # HTTPS interface web
+    volumes:
+      - ./data:/opt/adguardhome/data
+      - ./work:/opt/adguardhome/work
+      - ./conf:/opt/adguardhome/conf
+    networks:
+      - proxy
+
+networks:
+  proxy:
+    external: true
