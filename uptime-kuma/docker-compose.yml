@@ -3,12 +3,13 @@ services:
     image: louislam/uptime-kuma:1
     container_name: uptime-kuma
     volumes:
-      - /srv/dev-disk-by-uuid-40ed7281-6248-4566-9ac7-56ee2bb8eabe/docker-volumes/uptime-kuma_data:/app/data
+      - ${ROOT_VOLUME}/uptime-kuma_data:/app/data
     restart: always
     networks:
       - proxy
     dns:
-      - 192.168.1.55
+      - ${DNS}
+      
 networks:
   proxy:
     external: true

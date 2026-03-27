@@ -1,3 +1,10 @@
 raspberry-pi-mono-repo-2/
 actions-runner/
 cal.com/
+nextcloud-db/
+*/.env
+*/config/*
+*/conf/*
+*/work/*
+
+core

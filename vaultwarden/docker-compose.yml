@@ -4,12 +4,12 @@ services:
     container_name: vaultwarden
     restart: always
     environment:
-      WEBSOCKET_ENABLED: "true"       # Pour notifications en temps réel
-      ADMIN_TOKEN: "${ADMIN_TOKEN}"   # Optionnel, pour interface admin
+      WEBSOCKET_ENABLED: "true"
+      ADMIN_TOKEN: "${ADMIN_TOKEN}"
     volumes:
       - ${ROOT_VOLUME}/vaultwarden_data:/data
     networks:
-      - proxy                       # même réseau que Nginx Proxy Manager
+      - proxy
 
 networks:
   proxy:

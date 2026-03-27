@@ -3,15 +3,14 @@ services:
     image: glanceapp/glance
     container_name: glance
     volumes:
-      - ./config:/app/config
+      - ${ROOT_CONFIG}:/app/config
     restart: unless-stopped
     environment:
-      - YOUR_BASE_DOMAIN=private.steventea.com
-      - ZERO_TRUST_USER_ID=monuserid
+      - YOUR_BASE_DOMAIN=${DOMAIN}
     networks:
       - proxy
     dns:
-      - 192.168.1.55
+      - ${DNS}
 
 networks:
   proxy:

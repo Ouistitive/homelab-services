@@ -3,13 +3,13 @@ services:
     image: linuxserver/code-server:latest
     container_name: code-server
     environment:
-      - PUID=1000
-      - PGID=1000
+      - PUID=${PUID}
+      - PGID=${PGID}
       - TZ=Europe/Paris
-      - PASSWORD=TonMotDePasse
+      - PASSWORD=${ROOT_PASSWORD}
     volumes:
       - ./config:/config
-      - /home/ouistitive/programs:/workspace
+      - ${ROOT_PROGRAMS}:/workspace
     restart: unless-stopped
     networks:
       - proxy

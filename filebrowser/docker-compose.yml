@@ -8,9 +8,9 @@ services:
       - FB_ROOT=/srv
       - FB_ADDRESS=0.0.0.0
     volumes:
-      - /srv/dev-disk-by-uuid-40ed7281-6248-4566-9ac7-56ee2bb8eabe/docker-volumes/filebrowser_data/filebrowser_files:/srv
-      - /srv/dev-disk-by-uuid-40ed7281-6248-4566-9ac7-56ee2bb8eabe/docker-volumes/filebrowser_data/filebrowser.db:/database/filebrowser.db
-      - /srv/dev-disk-by-uuid-40ed7281-6248-4566-9ac7-56ee2bb8eabe/docker-volumes/filebrowser_data/settings.json:/config/settings.json
+      - ${ROOT_VOLUME}/filebrowser_data/filebrowser_files:/srv
+      - ${ROOT_VOLUME}/filebrowser_data/filebrowser.db:/database/filebrowser.db
+      - ${ROOT_VOLUME}/filebrowser_data/settings.json:/config/settings.json
     user: "1002:1002"
     networks:
       - proxy
